@@ -1,79 +1,65 @@
+# importing the required module
 import matplotlib.pyplot as plt
-import yfinance as yf
-from datetime import *
-import dateutil.relativedelta
-import datetime
-import pandas as pd
-import mplcursors
-import matplotlib
-import matplotlib.dates as mdates
-from dateutil import parser
+import math
 import numpy as np
+import datetime as dt
+import pandas as pd
+import json
+import dateutil.relativedelta
 
 
-class mainObj:
-    def getData(self, ticker):
-        currentDate = datetime.datetime.strptime(
-            date.today().strftime("%Y-%m-%d"), "%Y-%m-%d")
-        pastDate = currentDate - dateutil.relativedelta.relativedelta(months=4)
-        data = yf.download(ticker, pastDate, currentDate)
-        return data[["Volume"]]
 
-    def printData(self, data):
-        with pd.option_context('display.max_rows', None, 'display.max_columns', None):
-            cleanData_print = data.copy()
-            cleanData_print.reset_index(level=0, inplace=True)
-            print(cleanData_print.to_string(index=False))
+# import output from sim_data
 
-    def barGraph(self, data):
-        data.reset_index(level=0, inplace=True)
-        tempList = []
-        for x in data['Date']:
-            tempList.append(x.date())
-        data['goodDate'] = tempList
-        data = data.drop('Date', 1)
-        data.set_index('goodDate', inplace=True)
-        ################
-        fig, ax = plt.subplots(figsize=(15, 7))
-        data.plot(kind='bar', ax=ax)
-        ax.get_yaxis().set_major_formatter(
-            matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
-        mplcursors.cursor(hover=True)
-        ################
-        plt.show()
-
-    def lineGraph(self, data):
-        data.reset_index(level=0, inplace=True)
-        fig, ax = plt.subplots(figsize=(15, 7))
-        ax.plot(data['Date'], data['Volume'])
-        ax.get_yaxis().set_major_formatter(
-            matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
-        mplcursors.cursor(hover=True)
-        currentDate = datetime.datetime.strptime(
-            date.today().strftime("%Y-%m-%d"), "%Y-%m-%d")
-        pastDate = currentDate - dateutil.relativedelta.relativedelta(months=4)
-        plt.show()
-
-    def find_anomalies(self, random_data):
-        anomalies = []
-        random_data_std = np.std(random_data)
-        random_data_mean = np.mean(random_data)
-        # Set upper and lower limit to 3 standard deviation
-        anomaly_cut_off = random_data_std * 4
-        lower_limit = random_data_mean - anomaly_cut_off
-        upper_limit = random_data_mean + anomaly_cut_off
-        # Generate outliers
-        for outlier in random_data:
-            if outlier > upper_limit or outlier < lower_limit:
-                anomalies.append(outlier)
-        return anomalies
+def make_graph(start_time, end_time, y_vals, output_name, ticker):
+    # Set up figure
+    plt.title(output_name)
+    plt.figure(figsize=(10,5))
+    plt.xticks(rotation=40)
+    plt.xlabel('Time')
+    plt.ylabel('Volume')
+    plt.minorticks_on()
+    x = [n for n in pd.date_range(start=start_time,end=end_time)]
+    # Plot portfolio
+    plt.plot(x, y_vals)
+    plt.savefig('./output/' + str(ticker.upper()) + "/" + output_name + '.png')
+    plt.clf()
+    plt.close('all')
 
 
-# setup
-main = mainObj()
 
-# commands
-data = main.getData("KODK")
-# main.printData(data)
-# main.barGraph(data)
-main.lineGraph(data)
+
+
+def main():
+    # end_time = dt.date.today()
+    # start_time =  end_time - dt.timedelta(months=5)
+
+    all_tickers_df = pd.read_csv("output/2022-03-02.csv")
+    for ticker in all_tickers_df["Symbol"]:
+        # ticker = "AEL"
+        print(ticker)
+
+        data = pd.read_csv("output/"+str(ticker)+"/volume.csv")
+
+        endDate = dt.datetime.strptime(data.iloc[len(data) - 1]["Date"], "%Y-%m-%d")
+        startDate = dt.datetime.strptime(data.iloc[0]["Date"], "%Y-%m-%d")
+        # print(("2022-02-24" in list(data["Date"])))
+        for day in pd.date_range(start=startDate,end=endDate):
+            if str(day.date()) not in list(data["Date"]):
+                data = pd.concat([data[data["Date"] < str(day.date())], pd.DataFrame({"Date":[str(day.date())], "Volume":[None]}), data[data["Date"] > str(day.date())]]).reset_index(drop=True)
+
+        for i in range(len(data)):
+            if data.iloc[i]["Volume"] is None:
+                # print(i)
+                data.iloc[i]["Volume"] = data["Volume"][i - 1]
+
+        # data.to_csv("output/ACCO/volumeV2.csv", index=False)
+
+        y_vals = data["Volume"]
+        # x_vals = data["Date"]
+        make_graph(startDate, endDate, y_vals, str(ticker) + " Volume", ticker)
+
+
+
+if __name__ == "__main__":
+    main()
