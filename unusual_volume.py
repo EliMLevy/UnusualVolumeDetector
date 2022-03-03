@@ -87,7 +87,7 @@ def scan_market(threshold):
                             #     os.mkdir("output/" + str(ticker.upper()))
                             filled_volume = fill_data_gaps(volume)
                             filled_volume.to_json(base_dir + "output/volume.json", orient="records")
-                            put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/"+ str(dt.date.today()) + "/" + str(ticker.upper()) + ".json")
+                            put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/volume/" + str(ticker.upper()) + ".json")
                             # filled_volume.to_csv("output/" + str(ticker.upper()) + "/volume.csv", index=False)
                             # make_graph(dt.datetime.strptime(filled_volume.iloc[0]["Date"], "%Y-%m-%d"), dt.datetime.strptime(filled_volume.iloc[-1]["Date"], "%Y-%m-%d"), filled_volume["Volume"], str(ticker) + " Volume", ticker)
                             df = pd.DataFrame({
@@ -106,6 +106,7 @@ def scan_market(threshold):
 
     pd.read_csv(base_dir + "output/" + str(dt.date.today()) + ".csv").to_json("output/volume.json", orient="records")
     put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/"+ str(dt.date.today()) + ".json")
+    put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/"+ str(dt.date.today() + dt.timedelta(days=1)) + ".json")
 
 
 def fill_data_gaps(data):
