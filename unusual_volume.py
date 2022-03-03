@@ -104,7 +104,7 @@ def scan_market(threshold):
                 print(ticker)
 
 
-    pd.read_csv(base_dir + "output/" + str(dt.date.today()) + ".csv").to_json("output/volume.json", orient="records")
+    pd.read_csv(base_dir + "output/" + str(dt.date.today()) + ".csv").to_json(base_dir + "output/volume.json", orient="records")
     put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/"+ str(dt.date.today()) + ".json")
     put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/"+ str(dt.date.today() + dt.timedelta(days=1)) + ".json")
 
