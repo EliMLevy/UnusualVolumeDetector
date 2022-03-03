@@ -460,7 +460,7 @@ ATEC|Alphatec Holdings, Inc. - Common Stock|Q|N|N|100|N|N
 ATER|Aterian, Inc. - Common Stock|S|N|N|100|N|N
 ATEX|Anterix Inc. - Common Stock|S|N|N|100|N|N
 ATHA|Athira Pharma, Inc. - Common Stock|Q|N|N|100|N|N
-ATHE|Alterity Therapeutics Limited - American Depositary Shares|S|N|N|100|N|N
+ATHE|Alterity Therapeutics Limited - American Depositary Shares|S|N|D|100|N|N
 ATHX|Athersys, Inc. - Common Stock|S|N|N|100|N|N
 ATIF|ATIF Holdings Limited - Ordinary Shares|S|N|N|100|N|N
 ATLC|Atlanticus Holdings Corporation - Common Stock|Q|N|N|100|N|N
@@ -748,7 +748,7 @@ BPMC|Blueprint Medicines Corporation - Common Stock|Q|N|N|100|N|N
 BPOP|Popular, Inc. - Common Stock|Q|N|N|100|N|N
 BPOPM|Popular, Inc. - Popular Capital Trust II - 6.125% Cumulative Monthly Income Trust Preferred Securities|Q|N|N|100|N|N
 BPRN|The Bank of Princeton - Common Stock|Q|N|N|100|N|N
-BPTH|Bio-Path Holdings, Inc. - Common Stock|S|N|N|100|N|N
+BPTH|Bio-Path Holdings, Inc. - Common Stock|S|N|D|100|N|N
 BPTS|Biophytis SA - American Depositary Share|S|N|N|100|N|N
 BPYPM|Brookfield Property Partners L.P. - 6.25% Class A Cumulative Redeemable Preferred Units, Series 1|Q|N|N|100|N|N
 BPYPN|Brookfield Property Partners L.P. - 5.750% Class A Cumulative Redeemable Perpetual Preferred Units, Series 3|Q|N|N|100|N|N
@@ -2914,7 +2914,7 @@ KOPN|Kopin Corporation - Common Stock|S|N|N|100|N|N
 KOSS|Koss Corporation - Common Stock|S|N|N|100|N|N
 KPLT|Katapult Holdings, Inc. - Common Stock|G|N|N|100|N|N
 KPLTW|Katapult Holdings, Inc. - Warrant|G|N|N|100|N|N
-KPRX|Kiora Pharmaceuticals, Inc.  - Common Stock|S|N|N|100|N|N
+KPRX|Kiora Pharmaceuticals, Inc.  - Common Stock|S|N|D|100|N|N
 KPTI|Karyopharm Therapeutics Inc. - Common Stock|Q|N|N|100|N|N
 KRBP|Kiromic BioPharma, Inc. - Common Stock|S|N|E|100|N|N
 KRKR|36Kr Holdings Inc. - American Depositary Shares|G|N|N|100|N|N
@@ -2947,7 +2947,10 @@ KVHI|KVH Industries, Inc. - Common Stock|Q|N|N|100|N|N
 KVSA|Khosla Ventures Acquisition Co. - Class A Common Stock|S|N|N|100|N|N
 KVSC|Khosla Ventures Acquisition Co. III - Class A Common Stock|S|N|N|100|N|N
 KXIN|Kaixin Auto Holdings - Ordinary Shares|S|N|N|100|N|N
+KYCH|Keyarch Acquisition Corporation - Ordinary Shares|G|N|N|100|N|N
+KYCHR|Keyarch Acquisition Corporation - Rights|G|N|N|100|N|N
 KYCHU|Keyarch Acquisition Corporation - Unit|G|N|N|100|N|N
+KYCHW|Keyarch Acquisition Corporation - Warrant|G|N|N|100|N|N
 KYMR|Kymera Therapeutics, Inc. - Common Stock|G|N|N|100|N|N
 KZIA|Kazia Therapeutics Limited - American Depositary Shares|S|N|N|100|N|N
 KZR|Kezar Life Sciences, Inc. - Common Stock|Q|N|N|100|N|N
@@ -3916,7 +3919,7 @@ PETQ|PetIQ, Inc. - Class A Common Stock|Q|N|N|100|N|N
 PETS|PetMed Express, Inc. - Common Stock|Q|N|N|100|N|N
 PETV|PetVivo Holdings, Inc. - Common Stock|S|N|N|100|N|N
 PETVW|PetVivo Holdings, Inc. - Warrant|S|N|N|100|N|N
-PETZ|TDH Holdings, Inc. - Common Shares|S|N|N|100|N|N
+PETZ|TDH Holdings, Inc. - Common Shares|S|N|D|100|N|N
 PEY|Invesco High Yield Equity Dividend Achievers ETF|G|N|N|100|Y|N
 PEZ|Invesco DWA Consumer Cyclicals Momentum ETF|G|N|N|100|Y|N
 PFBC|Preferred Bank - Common Stock|Q|N|N|100|N|N
@@ -4787,7 +4790,7 @@ SSTI|ShotSpotter, Inc. - Common Stock|S|N|N|100|N|N
 SSYS|Stratasys, Ltd. - Common Stock|Q|N|N|100|N|N
 STAA|STAAR Surgical Company - Common Stock|G|N|N|100|N|N
 STAB|Statera Biopharma, Inc. - Common Stock|S|N|N|100|N|N
-STAF|Staffing 360 Solutions, Inc. - Common Stock|S|N|N|100|N|N
+STAF|Staffing 360 Solutions, Inc. - Common Stock|S|N|D|100|N|N
 STBA|S&T Bancorp, Inc. - Common Stock|Q|N|N|100|N|N
 STCN|Steel Connect, Inc. - Common Stock|S|N|N|100|N|N
 STEP|StepStone Group Inc. - Class A Common Stock|Q|N|N|100|N|N
@@ -5017,7 +5020,7 @@ TMPMW|Turmeric Acquisition Corp. - Warrant|S|N|N|100|N|N
 TMUS|T-Mobile US, Inc. - Common Stock|Q|N|N|100|N|N
 TNDM|Tandem Diabetes Care, Inc. - Common Stock|G|N|N|100|N|N
 TNGX|Tango Therapeutics, Inc. - Common Stock|G|N|N|100|N|N
-TNXP|Tonix Pharmaceuticals Holding Corp. - Common Stock|G|N|D|100|N|N
+TNXP|Tonix Pharmaceuticals Holding Corp. - Common Stock|S|N|D|100|N|N
 TNYA|Tenaya Therapeutics, Inc. - Common Stock|Q|N|N|100|N|N
 TOAC|Talon 1 Acquisition Corp. - Class A Ordinary Shares|G|N|N|100|N|N
 TOACU|Talon 1 Acquisition Corp. - Unit|G|N|N|100|N|N
@@ -5589,4 +5592,4 @@ ZXZZT|NASDAQ TEST STOCK|G|Y|N|100||N
 ZY|Zymergen Inc. - Common Stock|Q|N|N|100|N|N
 ZYNE|Zynerba Pharmaceuticals, Inc. - Common Stock|G|N|N|100|N|N
 ZYXI|Zynex, Inc. - Common Stock|Q|N|N|100|N|N
-File Creation Time: 0302202212:10|||||||
+File Creation Time: 0303202211:01|||||||

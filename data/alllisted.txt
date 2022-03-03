@@ -1188,7 +1188,6 @@ CPG,CPG|Crescent Point Energy Corporation Ordinary Shares (Canada)
 CPHI,CPHI|China Pharma Holdings, Inc. Common Stock
 CPI,CPI|IQ Real Return ETF
 CPK,CPK|Chesapeake Utilities Corporation Common Stock
-CPLG,CPLG|CorePoint Lodging Inc. Common Stock 
 CPNG,CPNG|Coupang, Inc. Class A Common Stock
 CPRI,CPRI|Capri Holdings Limited Ordinary Shares
 CPS,CPS|Cooper-Standard Holdings Inc. Common Stock
@@ -9393,7 +9392,10 @@ KVHI,KVHI|KVH Industries, Inc. - Common Stock
 KVSA,KVSA|Khosla Ventures Acquisition Co. - Class A Common Stock
 KVSC,KVSC|Khosla Ventures Acquisition Co. III - Class A Common Stock
 KXIN,KXIN|Kaixin Auto Holdings - Ordinary Shares
+KYCH,KYCH|Keyarch Acquisition Corporation - Ordinary Shares
+KYCHR,KYCHR|Keyarch Acquisition Corporation - Rights
 KYCHU,KYCHU|Keyarch Acquisition Corporation - Unit
+KYCHW,KYCHW|Keyarch Acquisition Corporation - Warrant
 KYMR,KYMR|Kymera Therapeutics, Inc. - Common Stock
 KZIA,KZIA|Kazia Therapeutics Limited - American Depositary Shares
 KZR,KZR|Kezar Life Sciences, Inc. - Common Stock

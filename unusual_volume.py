@@ -13,8 +13,11 @@ from grapher import make_graph
 from s3handler import (get_client, put_file, put_string)
 
 
+from dotenv import load_dotenv
+import os
 
-
+load_dotenv()
+base_dir = os.getenv("BASE_DIR")
 
 
 def getVolume(ticker, startDate, endDate): # dates in ISO format
@@ -69,7 +72,7 @@ def scan_market(threshold):
     startDate = endDate - dateutil.relativedelta.relativedelta(months=5)
     start_time = time.time()
     result_df = pd.DataFrame(columns=["Symbol", "Date", "Volume", "Mean", "Dist. to Mean"])
-    result_df.to_csv("output/" + str(dt.date.today()) + ".csv", index=False)
+    result_df.to_csv(base_dir + "output/" + str(dt.date.today()) + ".csv", index=False)
     for ticker in tqdm(list_of_tickers):
         # print(ticker)
         if "$" not in ticker and "." not in ticker:
@@ -83,8 +86,8 @@ def scan_market(threshold):
                             # if not os.path.isdir("output/" + str(ticker.upper())):
                             #     os.mkdir("output/" + str(ticker.upper()))
                             filled_volume = fill_data_gaps(volume)
-                            filled_volume.to_json("output/volume.json", orient="records")
-                            put_file(s3_client, "mysecfilings", "./output/volume.json", "data/unusualVolume/"+ str(dt.date.today()) + "/" + str(ticker.upper()) + ".json")
+                            filled_volume.to_json(base_dir + "output/volume.json", orient="records")
+                            put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/"+ str(dt.date.today()) + "/" + str(ticker.upper()) + ".json")
                             # filled_volume.to_csv("output/" + str(ticker.upper()) + "/volume.csv", index=False)
                             # make_graph(dt.datetime.strptime(filled_volume.iloc[0]["Date"], "%Y-%m-%d"), dt.datetime.strptime(filled_volume.iloc[-1]["Date"], "%Y-%m-%d"), filled_volume["Volume"], str(ticker) + " Volume", ticker)
                             df = pd.DataFrame({
@@ -95,14 +98,14 @@ def scan_market(threshold):
                                 "Dist. to Mean": round(anomolies["Volume"][i] - anomolies["Mean"][i],2)
                             })
                             # print(df)
-                            df.to_csv("output/" + str(dt.date.today()) + ".csv", header=False, index=False, mode='a')
+                            df.to_csv(base_dir + "output/" + str(dt.date.today()) + ".csv", header=False, index=False, mode='a')
 
             else:
                 print(ticker)
 
 
-    pd.read_csv("output/" + str(dt.date.today()) + ".csv").to_json("output/volume.json", orient="records")
-    put_file(s3_client, "mysecfilings", "./output/volume.json", "data/unusualVolume/"+ str(dt.date.today()) + ".json")
+    pd.read_csv(base_dir + "output/" + str(dt.date.today()) + ".csv").to_json("output/volume.json", orient="records")
+    put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/"+ str(dt.date.today()) + ".json")
 
 
 def fill_data_gaps(data):

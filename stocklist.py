@@ -4,6 +4,11 @@ import errno
 
 exportList = []
 
+from dotenv import load_dotenv
+
+load_dotenv()
+base_dir = os.getenv("BASE_DIR")
+
 
 class NasdaqController:
     def getList(self):
@@ -12,8 +17,8 @@ class NasdaqController:
     def __init__(self, update=True):
 
         self.filenames = {
-            "otherlisted": "data/otherlisted.txt",
-            "nasdaqlisted": "data/nasdaqlisted.txt"
+            "otherlisted": base_dir + "data/otherlisted.txt",
+            "nasdaqlisted": base_dir + "data/nasdaqlisted.txt"
         }
 
         # Update lists only if update = True
@@ -37,7 +42,7 @@ class NasdaqController:
                 self.ftp.retrbinary("RETR " + filename +
                                     ".txt", open(filepath, 'wb').write)
 
-        all_listed = open("data/alllisted.txt", 'w')
+        all_listed = open(base_dir + "data/alllisted.txt", 'w')
 
         for filename, filepath in self.filenames.items():
             with open(filepath, "r") as file_reader:

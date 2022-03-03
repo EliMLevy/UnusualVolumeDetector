@@ -1189,7 +1189,6 @@ CPG|Crescent Point Energy Corporation Ordinary Shares (Canada)|N|CPG|N|100|N|CPG
 CPHI|China Pharma Holdings, Inc. Common Stock|A|CPHI|N|100|N|CPHI
 CPI|IQ Real Return ETF|P|CPI|Y|100|N|CPI
 CPK|Chesapeake Utilities Corporation Common Stock|N|CPK|N|100|N|CPK
-CPLG|CorePoint Lodging Inc. Common Stock |N|CPLG|N|100|N|CPLG
 CPNG|Coupang, Inc. Class A Common Stock|N|CPNG|N|100|N|CPNG
 CPRI|Capri Holdings Limited Ordinary Shares|N|CPRI|N|100|N|CPRI
 CPS|Cooper-Standard Holdings Inc. Common Stock|N|CPS|N|100|N|CPS
@@ -6446,4 +6445,4 @@ ZVV|NYSE ARCA test stock|P|ZVV|N|100|Y|ZVV
 ZWS|Zurn Water Solutions Corporation Common Stock|N|ZWS|N|100|N|ZWS
 ZXIET|IEX Test Company Test Symbol Three for IEX|V|ZXIET|N|100|Y|ZXIET
 ZYME|Zymeworks Inc. Common Shares|N|ZYME|N|100|N|ZYME
-File Creation Time: 0302202212:10||||||
+File Creation Time: 0303202211:01||||||
