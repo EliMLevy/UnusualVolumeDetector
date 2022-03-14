@@ -81,11 +81,11 @@ def scan_market(threshold):
                 # print(ticker)
                 anomolies = find_anomalies(volume, threshold)
                 if len(anomolies["Dates"]) > 0:
+                    filled_volume = fill_data_gaps(volume)
                     for i in range(len(anomolies["Dates"])):
                         if endDate - dt.datetime.strptime(anomolies["Dates"][i], "%Y-%m-%d") <= dt.timedelta(days=3):
                             # if not os.path.isdir("output/" + str(ticker.upper())):
                             #     os.mkdir("output/" + str(ticker.upper()))
-                            filled_volume = fill_data_gaps(volume)
                             filled_volume.to_json(base_dir + "output/volume.json", orient="records")
                             put_file(s3_client, "mysecfilings", base_dir + "output/volume.json", "data/unusualVolume/volume/" + str(ticker.upper()) + ".json")
                             # filled_volume.to_csv("output/" + str(ticker.upper()) + "/volume.csv", index=False)
