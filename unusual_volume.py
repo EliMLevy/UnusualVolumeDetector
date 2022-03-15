@@ -64,16 +64,17 @@ def find_anomalies(data, threshold):
     return result
 
 
-def scan_market(threshold):
+def scan_market(threshold, start_from=0):
     s3_client = get_client()
     StocksController = NasdaqController(True)
     list_of_tickers = StocksController.getList()
     endDate = dt.datetime.strptime(dt.date.today().strftime("%Y-%m-%d"), "%Y-%m-%d")
     startDate = endDate - dateutil.relativedelta.relativedelta(months=5)
     start_time = time.time()
-    result_df = pd.DataFrame(columns=["Symbol", "Date", "Volume", "Mean", "Dist. to Mean"])
-    result_df.to_csv(base_dir + "output/" + str(dt.date.today()) + ".csv", index=False)
-    for ticker in tqdm(list_of_tickers):
+    if start_from == 0:
+        result_df = pd.DataFrame(columns=["Symbol", "Date", "Volume", "Mean", "Dist. to Mean"])
+        result_df.to_csv(base_dir + "output/" + str(dt.date.today()) + ".csv", index=False)
+    for ticker in tqdm(list_of_tickers[start_from:]):
         # print(ticker)
         if "$" not in ticker and "." not in ticker:
             volume = getVolume(ticker, startDate, endDate)
@@ -121,17 +122,3 @@ def fill_data_gaps(data):
             data.iloc[i]["Volume"] = data["Volume"][i - 1]
 
     return data
-
-def main():
-    # print("hello")
-    # data = getVolume("GOOG", dt.datetime(2022,2,28) - dt.timedelta(days=30), dt.datetime(2022,2,28))
-    # anomolies = find_anomalies(data, 2)
-    # print(data)
-    # print(anomolies)
-    scan_market(3)
-    # StocksController = NasdaqController(True)
-    # list_of_tickers = StocksController.getList()
-    # print(list_of_tickers)
-
-if __name__ == "__main__":
-    main()

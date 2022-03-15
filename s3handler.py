@@ -34,7 +34,7 @@ def read_obj_to_df(client, bucket, key):
     )
         
     # Read data from the S3 object
-    data = pandas.read_csv(obj['Body'])
+    data = pandas.read_json(obj['Body'])
         
     return data
 

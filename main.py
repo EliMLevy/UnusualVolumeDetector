@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 
 def main():
-    scan_market(3)
+    scan_market(3, start_from=0)
 
     # load_dotenv()
     # base_dir = os.getenv("BASE_DIR")
