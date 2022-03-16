@@ -28,7 +28,7 @@ def getVolume(ticker, startDate, endDate): # dates in ISO format
     domain = "query1.finance.yahoo.com"
     path = "/v7/finance/download/"+str(ticker)+"?period1="+str(fromDate)+"&period2="+str(toDate)+"&interval=1d&events=history&includeAdjustedClose=true"
 
-    time.sleep(1)
+    time.sleep(3)
     conn = http.client.HTTPSConnection(domain)
     payload = ''
     headers = {
